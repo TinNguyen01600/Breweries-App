@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { useEffect, useState } from "react";
 import { fetchSingleBrewery } from "../breweries/brewerySlice";
+import Spinner from "../../components/Spinner";
 
 const Detail = () => {
 	const { breweryId } = useParams();
@@ -18,7 +19,9 @@ const Detail = () => {
 
 	return (
 		<>
-			{!isLoading && (
+			{isLoading ? (
+				<Spinner />
+			) : (
 				<>
 					<figure aria-label="brewery-image">
 						<img src={brewery.img} alt="" />

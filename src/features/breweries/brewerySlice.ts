@@ -40,8 +40,8 @@ const brewerySlice = createSlice({
 
 export const { setBreweryList, setSelectedBrewery } = brewerySlice.actions;
 
-export const fetchBreweries = () => async (dispatch: any) => {
-	const res = await axios("https://api.openbrewerydb.org/v1/breweries");
+export const fetchBreweries = (page: number, perPage: number) => async (dispatch: any) => {
+	const res = await axios(`https://api.openbrewerydb.org/v1/breweries?page=${page}&per_page=${perPage}`);
 	let data = res.data;
 	data = data.map((brewery: Brewery) => ({
 		...brewery,
