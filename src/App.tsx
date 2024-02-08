@@ -4,6 +4,7 @@ import { fetchBreweries } from "./features/breweries/brewerySlice";
 import Home from "./features/routing/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Contact from "./features/routing/Contact";
+import Detail from "./features/routing/Detail";
 
 const App = () => {
 	const dispatch = useAppDispatch();
@@ -20,6 +21,7 @@ const App = () => {
 			<Routes>
                 <Route path="/" element={!isLoading && <Home />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/:breweryId" element={<Detail />} />
             </Routes>
 		</Router>
 	);
