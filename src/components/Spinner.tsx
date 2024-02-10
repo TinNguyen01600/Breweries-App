@@ -2,9 +2,9 @@ import spinner from '../img/spinner.gif'
 
 const Spinner: React.FC = () => {
     return (
-        <>
-            <img src={spinner} alt="" />
-        </>
+        <figure className='spinner'>
+            <img src={spinner} alt="Loading" />
+        </figure>
     )
 }
 

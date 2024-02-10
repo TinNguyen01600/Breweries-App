@@ -6,9 +6,9 @@ import NavBar from "./components/NavBar";
 
 const App = () => {
 	return (
-		<main>
+		<div className="app">
 			<NavBar />
-			<body>
+			<main>
 				<Router>
 					<Routes>
 						<Route path="/" element={<Home />} />
@@ -16,8 +16,8 @@ const App = () => {
 						<Route path="/:breweryId" element={<Detail />} />
 					</Routes>
 				</Router>
-			</body>
-		</main>
+			</main>
+		</div>
 	);
 };
 

@@ -3,7 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../app/store";
 import axios from "axios";
 
-type Brewery = {
+export type Brewery = {
 	id: string;
 	name: string;
     address_1: string;

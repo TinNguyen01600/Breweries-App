@@ -21,10 +21,11 @@ const Page: React.FC<Props> = ({ page: number }) => {
 
     return (
         <>
-            {isLoading ? (
+            {isLoading ? 
 				<Spinner />
-			) : (
+			 : (
 				<>
+
 					{breweryList.map((brewery) => (
 						<Link to={`/${brewery.id}`} key={brewery.id}>
 							<li>

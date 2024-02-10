@@ -1,3 +1,13 @@
+.search-bar {
+  display: inline-flex;
+  margin: 3vh;
+}
+.search-bar input {
+  width: 50vw;
+  height: 7vh;
+  padding: 5px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,8 +21,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-main {
+.app {
   display: flex;
   flex-direction: column;
-  gap: 15vh;
+  gap: 10vh;
+}
+
+.spinner figure {
+  width: 200px;
+  margin: auto;
+  display: block;
 }/*# sourceMappingURL=style.css.map */
