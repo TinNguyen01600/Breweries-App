@@ -12,7 +12,8 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import beer from '../img/beer.svg'
+import beer from "../img/beer.svg";
+import { Link } from "react-router-dom";
 
 interface Props {
 	/**
@@ -35,16 +36,18 @@ export default function NavBar(props: Props) {
 
 	const drawer = (
 		<Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-            <img src={beer} alt="" style={{height: '10vh'}}/>
+			<img src={beer} alt="" style={{ height: "10vh" }} />
 
 			<Divider />
 			<List>
 				{navItems.map((item) => (
-					<ListItem key={item} disablePadding>
-						<ListItemButton sx={{ textAlign: "center" }}>
-							<ListItemText primary={item} />
-						</ListItemButton>
-					</ListItem>
+					<Link to={`/${item}`}>
+						<ListItem key={item} disablePadding>
+							<ListItemButton sx={{ textAlign: "center" }}>
+								<ListItemText primary={item} />
+							</ListItemButton>
+						</ListItem>
+					</Link>
 				))}
 			</List>
 		</Box>
@@ -67,12 +70,14 @@ export default function NavBar(props: Props) {
 					>
 						<MenuIcon />
 					</IconButton>
-                    <img src={beer} alt="" style={{width: '4vw'}}/>
+					<img src={beer} alt="" style={{ width: "4vw" }} />
 					<Box sx={{ display: { xs: "none", sm: "block" } }}>
 						{navItems.map((item) => (
-							<Button key={item} sx={{ color: "#fff" }}>
-								{item}
-							</Button>
+							<Link to={`/${item}`}>
+								<Button key={item} sx={{ color: "#fff" }}>
+									{item}
+								</Button>
+							</Link>
 						))}
 					</Box>
 				</Toolbar>

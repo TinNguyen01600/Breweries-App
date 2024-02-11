@@ -1,11 +1,26 @@
-import React from "react"
+import { useForm } from "react-hook-form";
 
-const Contact: React.FC = () => {
-    return (
-        <>
-            This is contact page
-        </>
-    )
+type FormData = {
+	name: string;
+	email: string;
+};
+
+export default function Contact() {
+	const {
+		register,
+		setValue,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<FormData>();
+	const onSubmit = handleSubmit((data) => console.log(data));
+
+	return (
+		<form onSubmit={onSubmit}>
+			<input type="text" placeholder="Name" {...register("name")} required/>
+			<input type="email" placeholder="Email" {...register("email")} required/>
+			<textarea rows={10} placeholder="Leave message..." name="message" />
+
+			<input type="submit" />
+		</form>
+	);
 }
-
-export default Contact

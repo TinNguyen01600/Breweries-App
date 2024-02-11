@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { fetchBreweries } from "../breweries/brewerySlice";
 import Spinner from "../../components/Spinner";
-import { Link } from "react-router-dom";
 import BreweryCard from "../../components/BreweryCard";
 
 type Props = {
@@ -27,7 +26,9 @@ const Page: React.FC<Props> = ({ page }) => {
 			) : (
 				<main className="page">
 					{breweryList.map((brewery) => (
-						<BreweryCard brewery={brewery} />
+						<div key={brewery.id}>
+							<BreweryCard brewery={brewery} />
+						</div>
 					))}
 				</main>
 			)}
