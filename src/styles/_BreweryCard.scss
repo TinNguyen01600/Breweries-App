@@ -1,0 +1,49 @@
+.card {
+	width: 16vw;
+	height: 35vh;
+	text-align: center;
+	perspective: 1000px;
+	.card-front {
+		border: 2px solid black;
+		img {
+			height: 25vh;
+		}
+	}
+	.card-back {
+		border: 2px solid black;
+		h1 {
+			font-size: 20px;
+		}
+		ul {
+			list-style-type: none;
+			font-size: 20px;
+			align-items: center;
+		}
+	}
+}
+
+// Flip card styles
+.card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+	transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.card-back {
+	transform: rotateY(180deg);
+}

@@ -1,0 +1,11 @@
+@import './BreweryCard';
+
+.page {
+	display: grid;
+	grid-template-columns: repeat(4, 16vw);
+	/* 16vw = card's width */
+	gap: 5vw;
+	justify-content: space-evenly;
+	padding: 20px 0 20px 0;
+	
+}

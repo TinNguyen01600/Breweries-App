@@ -8,6 +8,63 @@
   padding: 5px;
 }
 
+.card {
+  width: 16vw;
+  height: 35vh;
+  text-align: center;
+  perspective: 1000px;
+}
+.card .card-front {
+  border: 2px solid black;
+}
+.card .card-front img {
+  height: 25vh;
+}
+.card .card-back {
+  border: 2px solid black;
+}
+.card .card-back h1 {
+  font-size: 20px;
+}
+.card .card-back ul {
+  list-style-type: none;
+  font-size: 20px;
+  align-items: center;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.page {
+  display: grid;
+  grid-template-columns: repeat(4, 16vw);
+  /* 16vw = card's width */
+  gap: 5vw;
+  justify-content: space-evenly;
+  padding: 20px 0 20px 0;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

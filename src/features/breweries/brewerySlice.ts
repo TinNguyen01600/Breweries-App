@@ -13,6 +13,7 @@ export type Brewery = {
 	website_url: string;
 	img: string;
     phone: string;
+    brewery_type: string;
 };
 
 interface BreweryState {
