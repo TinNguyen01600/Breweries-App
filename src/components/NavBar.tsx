@@ -41,8 +41,8 @@ export default function NavBar(props: Props) {
 			<Divider />
 			<List>
 				{navItems.map((item) => (
-					<Link to={`/${item}`}>
-						<ListItem key={item} disablePadding>
+					<Link to={`/${item}`} key={item}>
+						<ListItem disablePadding>
 							<ListItemButton sx={{ textAlign: "center" }}>
 								<ListItemText primary={item} />
 							</ListItemButton>
@@ -73,8 +73,8 @@ export default function NavBar(props: Props) {
 					<img src={beer} alt="" style={{ width: "4vw" }} />
 					<Box sx={{ display: { xs: "none", sm: "block" } }}>
 						{navItems.map((item) => (
-							<Link to={`/${item}`}>
-								<Button key={item} sx={{ color: "#fff" }}>
+							<Link to={`/${item}`} key={item}>
+								<Button sx={{ color: "#fff" }}>
 									{item}
 								</Button>
 							</Link>
