@@ -4,23 +4,24 @@ import axios from "axios";
 
 const SearchBar: React.FC = () => {
 	const [query, setQuery] = useState<string>("");
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setQuery(e.target.value);
-		console.log(query);
-		callbackSearchByName();
-	};
+	const [searchedBreweries, setSearchedBreweries] = useState<Brewery[]>([]);
 
 	const _ = require("lodash");
-	const searchByName = () => {
-		console.log("Fetch data");
+	const searchByName = (query: string) => {
+		fetchBreweriesByName(query);
 	};
-	let debounceSearchByName = _.debounce(searchByName, 3000);
-	const callbackSearchByName = useCallback(() => debounceSearchByName(), []);
+	const debouncedSearchByName = useCallback(
+		_.debounce(searchByName, 1000),
+		[]
+	);
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setQuery(e.target.value);
+		debouncedSearchByName(e.target.value);
+	};
 
-	const [searchedBreweries, setSearchedBreweries] = useState<Brewery[]>([]);
-	const fetchUsers = async (query: string) => {
+	const fetchBreweriesByName = async (query: string) => {
 		const res = await axios(
-			`https://api.openbrewerydb.org/v1/breweries?by_name=${query}&page=1&per_page=5`
+			`https://api.openbrewerydb.org/v1/breweries/search?query=${query}&page=1&per_page=5`
 		);
 		let data = res.data;
 		data = data.map((brewery: Brewery) => ({

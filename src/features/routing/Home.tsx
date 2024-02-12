@@ -10,7 +10,7 @@ const Home: React.FC = () => {
 	};
 	return (
 		<>
-            {/* <SearchBar /> */}
+            <SearchBar />
             <Page page={page}/>
             <MyPagination handleChange={handleChange}/>
 		</>
