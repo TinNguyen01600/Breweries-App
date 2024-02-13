@@ -15,12 +15,28 @@ export default function Contact() {
 	const onSubmit = handleSubmit((data) => console.log(data));
 
 	return (
-		<form onSubmit={onSubmit}>
-			<input type="text" placeholder="Name" {...register("name")} required/>
-			<input type="email" placeholder="Email" {...register("email")} required/>
-			<textarea rows={10} placeholder="Leave message..." name="message" />
+		<main className="form">
+			<form onSubmit={onSubmit}>
+				<input
+					type="text"
+					placeholder="Name"
+					{...register("name")}
+					required
+				/>
+				<input
+					type="email"
+					placeholder="Email"
+					{...register("email")}
+					required
+				/>
+				<textarea
+					rows={10}
+					placeholder="Leave message..."
+					name="message"
+				/>
 
-			<input type="submit" />
-		</form>
+				<input type="submit" />
+			</form>
+		</main>
 	);
 }

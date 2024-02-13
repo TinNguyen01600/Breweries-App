@@ -65,6 +65,25 @@
   padding: 20px 0 20px 0;
 }
 
+.form {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  width: 40vw;
+}
+.form form input {
+  height: 7vh;
+}
+.form form * {
+  padding: 1vw;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

@@ -14,7 +14,7 @@ const SearchBar: React.FC<Props> = ({ query, setQuery }) => {
 
 	const fetchBreweriesByName = async (query: string, page: number) => {
 		const res = await axios(
-			`https://api.openbrewerydb.org/v1/breweries/search?query=${query}&page=${page}&per_page=4`
+			`https://api.openbrewerydb.org/v1/breweries/search?query=${query}&page=${page}&per_page=8`
 		);
 		let data = res.data;
 		data = data.map((brewery: Brewery) => ({

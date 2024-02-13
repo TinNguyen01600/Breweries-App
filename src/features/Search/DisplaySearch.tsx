@@ -7,13 +7,13 @@ type Props = {
 
 const DisplaySearch: React.FC<Props> = ({ searchedBreweries }) => {
 	return (
-		<>
+		<main className="page">
 			{searchedBreweries.map((brewery) => (
 				<div key={brewery.id}>
 					<BreweryCard brewery={brewery} />
 				</div>
 			))}
-		</>
+		</main>
 	);
 };
 
