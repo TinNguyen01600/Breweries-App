@@ -8,7 +8,7 @@ type Props = {
 	page: number;
 };
 
-const Page: React.FC<Props> = ({ page }) => {
+const BreweriesList: React.FC<Props> = ({ page }) => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const dispatch = useAppDispatch();
 	const breweryList = useAppSelector((state) => state.brewery.breweryList);
@@ -36,4 +36,4 @@ const Page: React.FC<Props> = ({ page }) => {
 	);
 };
 
-export default Page;
+export default BreweriesList;

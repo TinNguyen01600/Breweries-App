@@ -1,11 +1,13 @@
 import SearchBar from "../Search/SearchBar";
 import MyPagination from "../pagination/MyPagination";
-import Page from "../pagination/Page";
+import BreweriesList from "../pagination/BreweriesList";
 import { useState } from "react";
+import Filter from "../Filter/Filter";
 
 const Home: React.FC = () => {
 	const [page, setPage] = useState(1);
 	const [query, setQuery] = useState<string>("");
+	const [type, setType] = useState("");
 
 	const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
 		setPage(value);
@@ -13,9 +15,10 @@ const Home: React.FC = () => {
 	return (
 		<>
 			<SearchBar query={query} setQuery={setQuery}/>
-			{!query && (
+            <Filter type={type} setType={setType}/>
+			{!query && !type && (
 				<>
-					<Page page={page} />
+					<BreweriesList page={page} />
 					<MyPagination handleChange={handleChange} />
 				</>
 			)}
