@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { useEffect, useState } from "react";
 import { fetchSingleBrewery } from "../breweries/brewerySlice";
@@ -10,6 +10,8 @@ const Detail = () => {
 
 	const dispatch = useAppDispatch();
 	const [isLoading, setIsLoading] = useState<boolean>(false);
+
+    const navigate = useNavigate();
 
 	useEffect(() => {
 		setIsLoading(true);
@@ -40,6 +42,7 @@ const Detail = () => {
 								{brewery.name}
 							</a>
 						</p>
+                        <button onClick={() => navigate('/home')}>Back to home</button>
 					</section>
 				</>
 			)}
